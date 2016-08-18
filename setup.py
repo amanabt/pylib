@@ -10,7 +10,7 @@ def read(fname):
 
 setup(
     name="lib_py",
-    version="0.3",
+    version="0.35",
     author="Aman Abhishek Tiwari",
     author_email="amanabt@iitk.ac.in",
     description="My python library where you could find my "
@@ -19,7 +19,7 @@ setup(
     keywords="utilities",
     url="https://github.com/amanabt/pylib",
     packages=['lib_py'],
-#    long_description=read('README.md'),
+    long_description=read('README.rst'),
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Science/Research",
