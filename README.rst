@@ -9,7 +9,7 @@ This is a collection of python libraries.
 
 .. code-block:: bash
 
-   pip install lib_py
+   pip install py_lib
 
 or you can even install by cloning this repository and 
 running.
@@ -18,4 +18,4 @@ running.
 
     sudo python setup.py install
 
-*Link* : http://pypi.python.org/pypi/lib_py
+*Link* : http://pypi.python.org/pypi/py_lib

@@ -9,7 +9,7 @@ def read(fname):
 
 
 setup(
-    name="lib_py",
+    name="py_lib",
     version="1.0",
     author="Aman Abhishek Tiwari",
     author_email="amanabt@iitk.ac.in",
@@ -18,7 +18,7 @@ setup(
     license="GPLv3+",
     keywords="utilities",
     url="https://github.com/amanabt/pylib",
-    packages=['lib_py'],
+    packages=['py_lib'],
     long_description=read('README.rst'),
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -41,6 +41,6 @@ setup(
     },
     platforms='any',
     entry_points={
-        'console_scripts': ['lib_py=lib_py.fourier:main'],
+        'console_scripts': ['py_lib=py_lib.fourier:main'],
     }
 )

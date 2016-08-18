@@ -1,2 +1,2 @@
 #! /usr/bin/env bash
-rm -rfv lib_py.egg-info *~
+rm -rfv py_lib.egg-info *~ *.un~
