@@ -19,7 +19,7 @@ setup(
     keywords="utilities",
     url="https://github.com/amanabt/pylib",
     packages=['lib_py'],
-    long_description=read('README.md'),
+#    long_description=read('README.md'),
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Science/Research",
