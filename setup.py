@@ -10,7 +10,7 @@ def read(fname):
 
 setup(
     name="py_lib",
-    version="1.0",
+    version="1.1",
     author="Aman Abhishek Tiwari",
     author_email="amanabt@iitk.ac.in",
     description="My python library where you could find my "

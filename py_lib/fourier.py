@@ -60,10 +60,15 @@ def noise_floor_distribution (data_points) :
 			#print (elt)
 	
 	plt.figure (2)
+	sp = plt.subplot (111)
+	sp.set_title ("Noise Distribution below different levels.")
+	sp.set_xlabel ("No. of Points")
+	sp.set_ylabel ("% of points below a dB in fourier transform.")
 	#x = np.array (range(len (result[400])))
-	plt.grid()
 	for i in range (x_range):
-		plt.plot (result[i])
+		sp.plot (result[i])
+
+	plt.grid()
 	return
 
 #########################################################################
@@ -93,7 +98,7 @@ def noise_floor (data_points) :
 				
 			
 			y_tmp = j * y_interval
-			if total * 100 / total_points <20:
+			if total * 100 / total_points < 20:
 				for elt in data:
 					if elt[0] >= y_tmp:
 						results.append (elt)
@@ -109,21 +114,19 @@ def noise_floor (data_points) :
 	
 	x = []
 	y = []
-	#outfile = open (sys.argv[3], 'w')
 	for elt in results:
 		x.append (elt[1])
 		y.append (elt[0])
-		#outfile.write (str (elt[1]) + "," + str (elt[0]) + "\n")
 
-	#print (results)
-	plt.grid()
-	plt.subplot (312)
-	plt.plot (x, y, ".")
+	sp2 = plt.subplot(211)
+	sp2.plot (x, y, ".", label="Noise Floor")
+	legend = sp2.legend(loc='upper right', shadow=True)
+	sp2.grid()
 	return
 
 #########################################################################
 
-def fourier_transform (datafile, freq):
+def fourier_transform (datafile, freq, fc = 5e6):
 	infile = open (datafile, 'r')
 	freq = float (freq)
 
@@ -142,34 +145,38 @@ def fourier_transform (datafile, freq):
 	final = []
 	
 	###############################
-	plt.subplot (311)
-	plt.grid()
-	plt.plot (x, y)
-	###############################
-	plt.subplot (312)
-	#plt.grid()
+
+	sp2 = plt.subplot(211)
+	sp2.set_title ("Fourier transform of Data.")
+	sp2.set_xlabel ("Frequency (s^-1)")
+	sp2.set_ylabel ("dB")
+	sp2.grid()
 	x_out = np.fft.fftfreq (len (x), d = 1 / freq)
 	
 	for idx in range (int (len (x) / 2)):
 		final.append (([y_out_log[idx], x_out[idx]]))
-	plt.plot (x_out[1:len (x_out)/2], y_out_log[1:len (x_out)/2], ".")
+	sp2.plot (x_out[1:len (x_out)/2], y_out_log[1:len (x_out)/2], ".", label="Fourier Transform")
+	legend = sp2.legend(loc='upper right', shadow=True)
 	#print (min (final)[0])
 	#print (type (final))
 	###############################
 
 	n = 1.0
-	fc = 5e6
 	H = 1 / (1 + (x_out/ fc)**(2 * n))
 
 	yflt = np.real (np.fft.ifft (H * y_out))
-	plt.subplot (313)
-	plt.plot (x, y)
-	plt.plot (x, yflt)
+	sp3 = plt.subplot(212)
+	sp3.set_title ("Data plot")
+	sp3.set_xlabel ("Time (s)")
+	sp3.set_ylabel ("Value")
+	sp3.plot (x, y, label="Original Data")
+	sp3.plot (x, yflt, label=("Filtered Data" + str(fc)))
+	legend = sp3.legend(loc='upper right', shadow=True)
 	print (max (yflt));
 	print (min (yflt));
 	noise_floor_distribution (y_out_log[:len (x_out)/2])
 	noise_floor (final)
-	plt.grid()
+	sp3.grid()
 	plt.show()
 	return
 
