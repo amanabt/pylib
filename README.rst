@@ -7,6 +7,9 @@ This is my collection of miscellaneous libraries.
 Currently the this package includes the following libraries :
 	- Noise Floor
 
+**DOCUMENTATION**
+http://pythonhosted.org/py_lib/
+
 *Link* : http://pypi.python.org/pypi/py_lib
 
 Links
