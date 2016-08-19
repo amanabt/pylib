@@ -31,15 +31,14 @@ from scipy.signal import argrelextrema
 #########################################################################
 
 def greater (arr, comp):
-	""" Compares all the elements of the an array which is greater than
-	a number.
+	""" Compares all the elements of the an array to the number comp and generates a list which is greater than the number comp.
 	
 	- **parameters**, **types**, **return** and **return types**::
 		:param arr: Array on which the operation is to be done.
 		:param comp: The number to which the array elements is to be compared.
 		:type arr: floats[]
 		:type arr: float
-		:return : float[]
+		:return: float[]
 	"""
 	result = []
 	for idx in range (len (arr)):
@@ -151,11 +150,11 @@ def fourier_transform (datafile, freq, fc = 5e6):
 	
 	- **parameters**, **types**, **return** and **return types**::
 		:param datafile: File from which data has to be read. This file should contain just the data points.
-		:param freq : Acquisition frequency.
-		:param fc : Cutoff frequency for the high-pass filter.
+		:param freq: Acquisition frequency.
+		:param fc: Cutoff frequency for the high-pass filter.
 		:type datafile: str
-		:type freq : str
-		:type fc : float
+		:type freq: str
+		:type fc: float
 	"""
 
 	infile = open (datafile, 'r')
