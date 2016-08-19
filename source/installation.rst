@@ -17,6 +17,20 @@ unless you are installing to a virtual environment you can write to.
 
     $ sudo pip install py_lib
 
+Installation from Sources
+-------------------------
+
+The sources can be downloaded from the project's
+`github releases <https://github.com/amanabt/pylib/releases>`_.
+
+.. code-block:: console
+
+    $ wget https://github.com/amanabt/pylib/archive/v2.0.zip
+    $ unzip v2.0.zip
+    ...
+    $ cd pylib-2.0
+    $ sudo python setup.py install
+
 
 Installation for Development
 ----------------------------

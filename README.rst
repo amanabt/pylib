@@ -4,6 +4,9 @@ PYTHON LIBRARY
 
 This is my collection of miscellaneous libraries.
 
+Currently the this package includes the following libraries :
+	- Noise Floor
+
 *Link* : http://pypi.python.org/pypi/py_lib
 
 Links

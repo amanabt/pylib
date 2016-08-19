@@ -1,4 +1,4 @@
-NOISE FLOOR
+Noise Floor
 ************
 
 This is a library using which you can
